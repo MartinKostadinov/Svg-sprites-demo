@@ -3,30 +3,25 @@
 var gulp = require('gulp');
 var svgSprite    = require( 'gulp-svg-sprite' );
 
-// Set our desired configuration values.
+// svgSprite configuration.
 svgConfig = {
     mode: {
-        // Make sure we're combining icons
-        // using the <symbol> method.
+        //  combining icons using the <symbol> method.
         symbol: true,
         // inline: true,
         // defs: false,
         // stack: true
     },
-    // Some more settings to keep
-    // the SVG's code clean:
+    // Some settings to clean the svg code:
     svg: {
         xmlDeclaration: false,
         doctypeDeclaration: false,
-        // By default the module wants to namespace
-        // all our IDs and classes. We're grownups
-        // so we want to preserve our settings.
         namespaceIDs: false,
         namespaceClassnames: false
     }
 };
 
-// Define our task.
+// Task for generating the svg sprite
 gulp.task( 'svg-sprite', function() {
     // Set the source folder.
     gulp.src( 'images/svg/*.svg' )

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  <!-- inlined sprite svg, always with display note -->
+    <svg style="display:none;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <symbol viewBox="0 0 13 7" id="black-dropdown-arrow" xmlns="http://www.w3.org/2000/svg">
+            <style>.cls-1{fill:#231f20;fill-rule:evenodd}</style>
+            <path id="Rectangle_18_copy_2" data-name="Rectangle 18 copy 2" class="cls-1" d="M13 .282L6.359 7-.01 0z"/>
+        </symbol>
+    </svg>
+    <style>
+        svg path {
+            /* set !important on the fill when the inlined svg has class on the path */
+            fill: inherit !important;
+        }
+        .black-arrow {
+            fill: red ;
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+</head>
+<body>
+    <!-- With inlined svg added on top of the page -->
+        <svg  class="black-arrow" role="img" title="delete">
+                <use xlink:href="#black-dropdown-arrow"></use>
+        </svg>
+        
+    <!-- external linking(not working  in chrome unless is served from server e.g. localhost)-->
+    <svg  class="black-arrow" role="img" title="delete">
+        <use xlink:href="sprite.symbol.svg#black-dropdown-arrow" ></use>
+    </svg>
+
+    <!-- Use this script when loading svgr sprite with the external technique, or the svg won't shows up on ie11 and below -->
+    <script src="js/svg4everybody.min.js"></script>
+    <script>svg4everybody(); // run it now or whenever you are ready</script>
+</body>
+</html>
+    <!-- Useful links
+        https://tympanus.net/codrops/2015/07/16/styling-svg-use-content-css/ 
+        https://webdesign.tutsplus.com/tutorials/how-to-implement-cross-browser-svg-sprites--cms-22427
+        http://plnkr.co/edit/LneUEK?p=preview
+    -->
